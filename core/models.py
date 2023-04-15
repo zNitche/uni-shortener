@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class ShortenedURL(models.Model):
-    org_url = models.TextField()
+    url = models.CharField(max_length=255, unique=True)
     hash = models.CharField(max_length=6, unique=True, default=utils.generate_url_hash)
     date_created = models.DateTimeField(default=datetime.utcnow)
 
