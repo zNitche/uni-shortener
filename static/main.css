@@ -1,9 +1,57 @@
+body {
+    background-color: #454A67 !important;
+}
+
+.page-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.centered-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-form {
+    width: 50%;
+}
+
+.navbar {
+    background-color: #8DB580;
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    font-size: 1.5rem;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
 .main-container {
 
 }
 
 .page-content-wrapper {
+    display: flex;
+}
 
+.form-control, .btn {
+    border-radius: 0px !important;
+}
+
+.btn {
+    background-color: #7E8987 !important;
+}
+
+.btn:hover {
+    background-color: #626a69 !important;
 }
 
 .messages-wrapper {
@@ -13,16 +61,43 @@
     gap: 0px 10px;
 }
 
+.form-sub-desc {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.form-sub-desc a {
+    color: #fff;
+}
+
+.url-details {
+    color: #fff;
+    background-color: #7E8987;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.url-details a {
+    color: #fff;
+}
+
 .error-message {
     color: #fff;
     background-color: red;
+    padding: 10px;
 }
 
 .success-message {
     color: #fff;
     background-color: green;
+    padding: 10px;
 }
 
 @media (max-width: 576px) {
-
+    .main-form {
+        width: 90%;
+    }
 }

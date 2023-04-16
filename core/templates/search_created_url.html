@@ -7,12 +7,12 @@
         <div class="form-inputs-wrapper input-group">
           {{ form }}
           <button class="btn" type="submit">
-              <img src="{% static 'icons/process_icon.svg' %}" alt="generate">
+              <img src="{% static 'icons/search_icon.svg' %}" alt="search">
           </button>
         </div>
     </form>
     <div class="form-sub-desc">
-        preview existing link <a href="{% url 'core:search_created_url' %}">here</a>
+        generate shortened link <a href="{% url 'core:main' %}">here</a>
     </div>
 </div>
 {% endblock %}

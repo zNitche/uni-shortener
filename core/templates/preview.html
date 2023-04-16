@@ -1,9 +1,16 @@
 {% extends "page.html" %}
 {% block content %}
-    <p>
-        target URL: <a href="{{ target_url }}" target="_blank">{{ target_url }}</a>
-    </p>
-    <p>
-        created at: {{ date_created }}
-    </p>
+<div class="centered-content-wrapper">
+    <div class="url-details">
+        <div>
+            <b>shortened link:</b> <a href="{{ redirect_url }}" target="_blank">{{ redirect_url }}</a>
+        </div>
+        <div>
+            <b>target URL:</b> <a href="{{ shortened_url.url }}" target="_blank">{{ shortened_url.url }}</a>
+        </div>
+        <div>
+            <b>created at:</b> {{ shortened_url.date_created }}
+        </div>
+    </div>
+</div>
 {% endblock %}
