@@ -64,4 +64,7 @@ def shortened_url_preview(request, hash):
 def redirect_to_target(request, target_hash):
     shortened_url = get_object_or_404(models.ShortenedURL, hash=target_hash)
 
+    redirect_log = models.RedirectLog(shortened_link=shortened_url)
+    redirect_log.save()
+
     return redirect(shortened_url.url)

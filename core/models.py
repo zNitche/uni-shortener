@@ -10,3 +10,12 @@ class ShortenedURL(models.Model):
 
     def __str__(self):
         return self.hash
+
+
+class RedirectLog(models.Model):
+    date_redirected = models.DateTimeField(default=datetime.utcnow)
+
+    shortened_link = models.ForeignKey(ShortenedURL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.date_redirected)
