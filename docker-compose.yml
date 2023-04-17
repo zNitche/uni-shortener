@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web_app:
+    container_name: uni_shortener
+    build: .
+    restart: unless-stopped
+#    ports:
+#      - "8000:8000"
+    volumes:
+      - static_files:/uni_shortener/static
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - static_files:/uni_shortener/static
+    depends_on:
+      - web_app
+
+volumes:
+  static_files:
