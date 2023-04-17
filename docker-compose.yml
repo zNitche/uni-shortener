@@ -7,7 +7,10 @@ services:
 #    ports:
 #      - "8000:8000"
     volumes:
+      - ${DB_PATH}:/uni_shortener/database
       - static_files:/uni_shortener/static
+    env_file:
+      - .env
   nginx:
     container_name: nginx
     build: ./nginx
