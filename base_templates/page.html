@@ -13,9 +13,33 @@
     <title>UniShortener</title>
 </head>
 <body>
-    <nav class="navbar sticky-top">
+    <nav class="navbar sticky-top navbar-expand-sm">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">UniShortener</a>
+        <a class="navbar-brand" href="{% url 'core:main' %}">UniShortener</a>
+        {% if user.is_authenticated %}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="#">
+                                <img src="{% static 'icons/account_icon.svg' %}">
+                                <span class="nav-item-link-text">Account</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-item-link" href="{% url 'authenticate:logout' %}">
+                            <img src="{% static 'icons/logout_icon.svg' %}">
+                            <span class="nav-item-link-text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          {% endif %}
       </div>
     </nav>
     <div class="main-container">

@@ -4,7 +4,7 @@
 <div class="centered-content-wrapper">
     <form method="POST" class="d-flex main-form">
         {% csrf_token %}
-        <div class="form-inputs-wrapper input-group">
+        <div class="search-form-wrapper input-group">
           {{ form }}
           <button class="btn" type="submit">
               <img src="{% static 'icons/search_icon.svg' %}" alt="search">

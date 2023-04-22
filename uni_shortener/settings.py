@@ -28,7 +28,7 @@ dotenv.load_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.getenv("SECRET_KEY", os.urandom(25))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", 0)
+DEBUG = int(os.getenv("DEBUG", 0))
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 
@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'core',
+    'authenticate',
 ]
+
+if DEBUG:
+    INSTALLED_APPS.append('django.contrib.admin')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,3 +128,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
+
+LOGIN_REDIRECT_URL = "core:main"

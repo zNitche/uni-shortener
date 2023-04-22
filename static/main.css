@@ -46,14 +46,6 @@ body {
     border-radius: 0px !important;
 }
 
-.btn {
-    background-color: #7E8987 !important;
-}
-
-.btn:hover {
-    background-color: #626a69 !important;
-}
-
 .messages-wrapper {
     display: flex;
     flex-direction: column;
@@ -96,8 +88,45 @@ body {
     padding: 10px;
 }
 
+.search-form-wrapper {
+
+}
+
+.search-form-wrapper .btn {
+    background-color: #7E8987 !important;
+}
+
+.search-form-wrapper .btn:hover {
+    background-color: #626a69 !important;
+}
+
+.login-form-wrapper {
+    flex-direction: column;
+    color: #fff;
+    gap: 10px 0;
+    background-color: #8DB580;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-item-link {
+    text-decoration: none;
+    color: #fff;
+}
+
 @media (max-width: 576px) {
     .main-form {
-        width: 90%;
+      width: 90%;
     }
+
+    .navbar-nav {
+      align-items: flex-start !important;
+      gap: 20px 0;
+    }
+}
+
+@media (min-width: 576px) {
+  .nav-item-link-text {
+    display: none;
+  }
 }
