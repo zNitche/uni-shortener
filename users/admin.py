@@ -14,7 +14,7 @@ class CustomUserAdmin(UserAdmin):
 
     fieldsets = (
         ("Details", {
-            "fields": ("username", "password", "date_joined")
+            "fields": ("username", "password", "second_fa_token", "date_joined")
         }),
         ("Permissions", {
             "fields": ("is_staff", "is_active", "groups", "user_permissions")
@@ -33,7 +33,7 @@ class CustomUserAdmin(UserAdmin):
 
     search_fields = ("username",)
     ordering = ("username",)
-    readonly_fields = ("date_joined",)
+    readonly_fields = ("date_joined", "second_fa_token")
 
 
 admin.site.register(User, CustomUserAdmin)

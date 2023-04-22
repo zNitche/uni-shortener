@@ -27,3 +27,9 @@ sudo docker compose up -d
 python3 generate_dotenv.py
 ```
 3. Change `DEBUG` in `.env` to `1`
+
+### Commands
+- enable / reset 2FA for user
+```
+python3 manage.py enable_2fa_for_user -u <username>
+```
