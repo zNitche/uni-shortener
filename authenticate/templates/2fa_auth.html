@@ -1,0 +1,15 @@
+{% extends "page.html" %}
+{% load static %}
+{% block content %}
+<div class="centered-content-wrapper">
+    <form method="POST" class="d-flex main-form">
+        {% csrf_token %}
+        <div class="login-form-wrapper input-group">
+          {{ form }}
+          <button class="btn btn-secondary" type="submit">
+              Authenticate
+          </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
