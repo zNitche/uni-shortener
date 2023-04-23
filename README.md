@@ -8,6 +8,7 @@ simple Django powered url shortener
 - `Django` 4.2
 - `gunicorn` as wsgi
 - `nginx` as reverse proxy and static files server
+- `redis` as cache backend
 
 ### Production Setup
 1. Clone this repo.
@@ -40,4 +41,9 @@ python3 generate_dotenv.py
 - enable / reset 2FA for user
 ```
 python3 manage.py enable_2fa_for_user -u <username>
+```
+
+- disable 2FA for user
+```
+python3 manage.py disable_2fa_for_user -u <username>
 ```
