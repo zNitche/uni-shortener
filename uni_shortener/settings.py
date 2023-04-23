@@ -91,12 +91,23 @@ DATABASES = {
 }
 
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "unique-snowflake",
+if DEBUG:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+            "LOCATION": "unique-snowflake",
+        }
     }
-}
+
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": "redis://redis_service:6000/1",
+        }
+    }
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 
 # Password validation
@@ -138,3 +149,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.User"
 
 LOGIN_REDIRECT_URL = "core:main"
+LOGIN_URL = "authenticate:login"

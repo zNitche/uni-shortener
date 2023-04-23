@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, resolve_url
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.cache import cache
 from authenticate import forms
-import secrets
+from django.contrib.auth import get_user_model
 import pyotp
 
 
@@ -26,10 +26,9 @@ def login(request):
 
                 if user is not None:
                     if user.second_fa_token:
-                        auth_token = secrets.token_urlsafe(64)
-                        cache.set(f"auth-user-{auth_token}", user, 120)
+                        cache.set(f"user-2fa-request-{request.session.session_key}", user.id, 90)
 
-                        return redirect("authenticate:second_fa_auth", token=auth_token)
+                        return redirect("authenticate:second_fa_auth")
 
                     else:
                         auth_login(request, user)
@@ -46,22 +45,24 @@ def login(request):
 
 
 @require_http_methods(["GET", "POST"])
-def second_fa_auth(request, token):
-    user = cache.get(f"auth-user-{token}")
+def second_fa_auth(request):
+    auth_request_cache_key = f"user-2fa-request-{request.session.session_key}"
+    user_id = cache.get(auth_request_cache_key)
 
-    if not request.user.is_authenticated and user:
+    if not request.user.is_authenticated and user_id:
         form = forms.SecondFAForm(data=request.POST or None)
 
         if request.method == "POST":
             if form.is_valid():
                 auth_code = request.POST["auth_code"]
+                user = get_user_model().objects.filter(pk=user_id).first()
 
                 if user:
                     totp = pyotp.TOTP(user.second_fa_token)
 
                     if totp.verify(auth_code):
                         auth_login(request, user)
-                        cache.delete(f"auth-user-{token}")
+                        cache.delete(auth_request_cache_key)
                         messages.add_message(request, messages.SUCCESS, "logged in")
 
                         return redirect(settings.LOGIN_REDIRECT_URL)

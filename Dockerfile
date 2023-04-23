@@ -1,4 +1,4 @@
-from python:3.9-slim
+from python:3.10-slim
 
 COPY . /uni_shortener
 WORKDIR /uni_shortener

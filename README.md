@@ -17,7 +17,15 @@ python3 generate_dotenv.py
 ```
 3. Run docker container.
 ```
+sudo docker compose build --no-cache
+```
+```
 sudo docker compose up -d
+```
+
+for stopping containers:
+```
+sudo docker compose down -v
 ```
 
 ### Dev Setup
