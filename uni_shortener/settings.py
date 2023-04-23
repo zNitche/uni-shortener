@@ -103,7 +103,7 @@ else:
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": "redis://redis_service:6000/1",
+            "LOCATION": f"redis://:{os.getenv('REDIS_PASSWORD', '')}@redis_service:6000/1",
         }
     }
 

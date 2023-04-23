@@ -2,9 +2,11 @@ version: "3"
 services:
   redis_service:
     image: redis:6.2-alpine
-    command: --port 6000
+    command: /bin/sh -c "redis-server --port 6000 --requirepass $$REDIS_PASSWORD"
     container_name: redis_service
     restart: unless-stopped
+    env_file:
+      - redis.env
 
   web_app:
     depends_on:
@@ -19,6 +21,7 @@ services:
       - static_files:/uni_shortener/static
     env_file:
       - .env
+      - redis.env
 
   nginx:
     container_name: nginx
