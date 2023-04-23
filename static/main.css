@@ -114,6 +114,10 @@ body {
     color: #fff;
 }
 
+.errorlist {
+    color: red !important;
+}
+
 @media (max-width: 576px) {
     .main-form {
       width: 90%;
