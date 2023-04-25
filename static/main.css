@@ -19,6 +19,11 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .main-form {
     width: 50%;
 }
@@ -38,8 +43,8 @@ body {
 
 }
 
-.page-content-wrapper {
-    display: flex;
+.input-group input {
+    border: 0;
 }
 
 .form-control, .btn {

@@ -25,9 +25,9 @@
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_staff %}
                         <li class="nav-item">
-                            <a class="nav-item-link" href="#">
+                            <a class="nav-item-link" href="{% url 'management:dashboard' %}">
                                 <img src="{% static 'icons/account_icon.svg' %}">
-                                <span class="nav-item-link-text">Account</span>
+                                <span class="nav-item-link-text">Admin</span>
                             </a>
                         </li>
                     {% endif %}

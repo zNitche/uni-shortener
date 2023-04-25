@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'core',
     'authenticate',
+    'management',
 ]
 
 if DEBUG:
@@ -148,5 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
 
-LOGIN_REDIRECT_URL = "core:main"
+LOGIN_REDIRECT_URL = "management:dashboard"
 LOGIN_URL = "authenticate:login"
