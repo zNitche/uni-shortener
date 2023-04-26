@@ -5,6 +5,7 @@ body {
 .page-content-wrapper {
     display: flex;
     flex-direction: column;
+    color: #fff;
 }
 
 .centered-content-wrapper {
@@ -123,6 +124,22 @@ body {
     color: red !important;
 }
 
+.graphs-wrapper {
+    display: flex;
+    flex-direction: row;
+    background-color: #6c757d;
+}
+
+.graph-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.graph-controls {
+
+}
+
 @media (max-width: 576px) {
     .main-form {
       width: 90%;
@@ -131,6 +148,14 @@ body {
     .navbar-nav {
       align-items: flex-start !important;
       gap: 20px 0;
+    }
+
+    .graphs-wrapper {
+        flex-direction: column !important;
+    }
+
+    .graph-wrapper {
+        width: 100% !important;
     }
 }
 

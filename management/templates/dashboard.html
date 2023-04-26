@@ -1,7 +1,25 @@
 {% extends "page.html" %}
 {% load static %}
 {% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <div class="content-wrapper">
-    dashboard
+    <div class="graphs-wrapper">
+        <div class="graph-wrapper">
+            <div class="graph-controls">
+                <input type="date" onchange="updateHoursGraph(this);">
+            </div>
+            <canvas id="hoursGraph"></canvas>
+        </div>
+        <div class="graph-wrapper">
+            <div class="graph-controls">
+                <input type="month" onchange="updateDaysGraph(this);">
+            </div>
+            <canvas id="daysGraph"></canvas>
+        </div>
+    </div>
 </div>
+<script>
+    initHoursGraph();
+    initDaysGraph();
+</script>
 {% endblock %}
