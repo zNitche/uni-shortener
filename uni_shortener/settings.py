@@ -32,7 +32,6 @@ DEBUG = int(os.getenv("DEBUG", 0))
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,6 +61,47 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'uni_shortener.urls'
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": os.path.join(BASE_DIR, "logs", "log.log"),
+        },
+    },
+    "loggers": {
+        "main": {
+            "level": "INFO",
+            "handlers": ["file"],
+        },
+        "dev": {
+            "handlers": ["console"],
+            "propagate": True,
+            "level": "DEBUG",
+        },
+    },
+}
+
+LOGGER_NAME = "dev" if DEBUG else "main"
 
 TEMPLATES = [
     {

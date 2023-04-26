@@ -3,8 +3,13 @@ from django.http import HttpResponseServerError
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 # from django.urls import reverse
+from django.conf import settings
 from core import models
 from core import forms
+import logging
+
+
+logger = logging.getLogger(settings.LOGGER_NAME)
 
 
 @require_http_methods(["GET", "POST"])
@@ -63,6 +68,8 @@ def shortened_url_preview(request, hash):
 @require_http_methods(["GET"])
 def redirect_to_target(request, target_hash):
     shortened_url = get_object_or_404(models.ShortenedURL, hash=target_hash)
+
+    logger.info(f"redirecting to {shortened_url.url}")
 
     redirect_log = models.RedirectLog(shortened_link=shortened_url)
     redirect_log.save()
