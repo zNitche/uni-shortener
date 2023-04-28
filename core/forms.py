@@ -12,13 +12,9 @@ class ShortenedURLCreationForm(forms.ModelForm):
         model = models.ShortenedURL
         fields = ["url"]
 
-    form_template_name = "form.html"
-
 
 class ShortenedURLSearchForm(forms.Form):
     hash = forms.CharField(label="", max_length=6, widget=forms.TextInput(attrs={
         "class": "form-control",
         "placeholder": "Enter a shortened link hash"
     }))
-
-    form_template_name = "form.html"
