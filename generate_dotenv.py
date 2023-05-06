@@ -58,9 +58,9 @@ def generate_redis_env(env_path):
 def main():
     current_dir = os.path.dirname(os.path.realpath(__file__))
     main_env_path = os.path.join(current_dir, ".env")
-    redis_env_path = os.path.join(current_dir, "redis.env")
-
     generate_main_env(main_env_path)
+
+    redis_env_path = os.path.join(current_dir, "redis.env")
     generate_redis_env(redis_env_path)
 
 
