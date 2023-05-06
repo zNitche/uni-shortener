@@ -17,9 +17,10 @@ import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = BASE_DIR.parent
 
 
-dotenv.load_dotenv(os.path.join(BASE_DIR, ".env"))
+dotenv.load_dotenv(os.path.join(PROJECT_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -85,7 +86,7 @@ LOGGING = {
             "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
-            "filename": os.path.join(BASE_DIR, "logs", "log.log"),
+            "filename": os.path.join(PROJECT_DIR, "logs", "log.log"),
         },
     },
     "loggers": {
@@ -106,7 +107,7 @@ LOGGER_NAME = "dev" if DEBUG else "main"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "base_templates")],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,7 +129,7 @@ WSGI_APPLICATION = 'uni_shortener.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, "database", "app.sqlite3"),
+        'NAME': os.path.join(PROJECT_DIR, "database", "app.sqlite3"),
     }
 }
 

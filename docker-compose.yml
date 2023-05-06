@@ -17,9 +17,9 @@ services:
 #    ports:
 #      - "8000:8000"
     volumes:
-      - ${DB_PATH}:/uni_shortener/database
-      - ${LOGS_PATH}:/uni_shortener/logs
-      - static_files:/uni_shortener/static
+      - ${DB_PATH}:/uni-shortener/database
+      - ${LOGS_PATH}:/uni-shortener/logs
+      - static_files:/uni-shortener/uni_shortener/static
     env_file:
       - .env
       - redis.env
