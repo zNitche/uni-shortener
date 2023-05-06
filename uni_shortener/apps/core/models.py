@@ -1,5 +1,5 @@
 from django.db import models
-from core import utils
+from uni_shortener.apps.core import utils
 from datetime import datetime
 
 

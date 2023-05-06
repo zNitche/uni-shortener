@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.cache import cache
-from authenticate import forms
+from uni_shortener.apps.authenticate import forms
 from django.contrib.auth import get_user_model
 import pyotp
 

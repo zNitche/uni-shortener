@@ -1,5 +1,5 @@
 from django.urls import path
-from management import views
+from uni_shortener.apps.management import views
 
 
 app_name = "management"

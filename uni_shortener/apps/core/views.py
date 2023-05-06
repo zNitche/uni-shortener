@@ -4,8 +4,8 @@ from django.views.decorators.http import require_http_methods
 from django.contrib import messages
 # from django.urls import reverse
 from django.conf import settings
-from core import models
-from core import forms
+from uni_shortener.apps.core import models
+from uni_shortener.apps.core import forms
 import logging
 
 

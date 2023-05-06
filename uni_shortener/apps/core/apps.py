@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class ApiConfig(AppConfig):
+class CoreConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api'
+    name = 'uni_shortener.apps.core'
+    label = 'core'

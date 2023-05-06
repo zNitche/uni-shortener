@@ -1,5 +1,5 @@
 from django.urls import path
-from authenticate import views
+from uni_shortener.apps.authenticate import views
 
 
 app_name = "authenticate"

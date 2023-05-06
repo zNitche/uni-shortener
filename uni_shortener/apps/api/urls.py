@@ -1,5 +1,5 @@
 from django.urls import path
-from api import views
+from uni_shortener.apps.api import views
 
 
 app_name = "api"

@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class ManagementConfig(AppConfig):
+class UsersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'management'
+    name = 'uni_shortener.apps.users'
+    label = 'users'

@@ -16,7 +16,7 @@ import dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = BASE_DIR.parent
 
 
@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'core',
-    'authenticate',
-    'management',
-    'api',
+    'uni_shortener.apps.users',
+    'uni_shortener.apps.core',
+    'uni_shortener.apps.authenticate',
+    'uni_shortener.apps.management',
+    'uni_shortener.apps.api',
 ]
 
 if DEBUG:
@@ -158,7 +158,7 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'users.validators.PasswordLengthValidator',
+        'NAME': 'uni_shortener.apps.users.validators.PasswordLengthValidator',
     },
 ]
 

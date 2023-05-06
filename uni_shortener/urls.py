@@ -19,10 +19,10 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path("", include("core.urls")),
-    path("auth/", include("authenticate.urls")),
-    path("management/", include("management.urls")),
-    path("api/", include("api.urls")),
+    path("", include("uni_shortener.apps.core.urls")),
+    path("auth/", include("uni_shortener.apps.authenticate.urls")),
+    path("management/", include("uni_shortener.apps.management.urls")),
+    path("api/", include("uni_shortener.apps.api.urls")),
 ]
 
 if settings.DEBUG:
@@ -31,6 +31,6 @@ if settings.DEBUG:
     urlpatterns.append(path('admin/', admin.site.urls))
 
 
-handler404 = "core.error_views.not_found"
-handler500 = "core.error_views.server_error"
-handler400 = "core.error_views.bad_request"
+handler404 = "uni_shortener.apps.core.error_views.not_found"
+handler500 = "uni_shortener.apps.core.error_views.server_error"
+handler400 = "uni_shortener.apps.core.error_views.bad_request"

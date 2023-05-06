@@ -1,5 +1,5 @@
 from django import forms
-from core import models
+from uni_shortener.apps.core import models
 
 
 class ShortenedURLCreationForm(forms.ModelForm):

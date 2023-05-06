@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
-from core import models
+from uni_shortener.apps.core import models
 from datetime import datetime
 import calendar
 

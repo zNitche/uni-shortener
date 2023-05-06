@@ -1,6 +1,6 @@
 from django.contrib import admin
-from core import models
-from core import admin_models
+from uni_shortener.apps.core import models
+from uni_shortener.apps.core import admin_models
 
 # Register your models here.
 admin.site.register(models.ShortenedURL, admin_models.ShortenedURIAdmin)
