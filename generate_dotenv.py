@@ -8,6 +8,7 @@ def get_main_config():
         "DB_PATH": "",
         "LOGS_PATH": "",
         "DEBUG": "0",
+        "ALLOWED_HOSTS": "",
     }
 
     return args

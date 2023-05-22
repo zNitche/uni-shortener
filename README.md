@@ -12,7 +12,9 @@ simple Django powered url shortener
 
 ### Production Setup
 1. Clone this repo.
-2. Generate `redis.env` and `.env` config file and change config values (`DB_PATH`).
+2. Generate `redis.env` and `.env` config file and change config values
+   - `DB_PATH` - database path
+   - `ALLOWED_HOSTS` - comma separated host names 
 ```
 python3 generate_dotenv.py
 ```
